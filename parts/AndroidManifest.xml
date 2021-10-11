@@ -33,7 +33,7 @@
         android:persistent="true"
         android:theme="@style/Theme.SubSettingsBase">
 
-        <receiver android:name=".BootCompletedReceiver">
+        <receiver android:name=".BootCompletedReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -41,17 +41,20 @@
         </receiver>
 
         <service android:name=".doze.DozeService"
+                 android:exported="true"
                  android:permission="XiaomiDozeService">
         </service>
 
         <service
             android:name=".thermal.ThermalService"
+            android:exported="true"
             android:permission="ThermalService">
         </service>
 
         <activity
             android:name=".doze.DozeSettingsActivity"
-            android:label="@string/ambient_display_title">
+            android:label="@string/ambient_display_title"
+            android:exported="true">
             <intent-filter>
                 <action android:name="org.lineageos.settings.device.DOZE_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -61,7 +64,8 @@
         <activity
             android:name=".thermal.ThermalActivity"
             android:label="@string/thermal_title"
-            android:theme="@style/Theme.SubSettingsBase">
+            android:theme="@style/Theme.SubSettingsBase"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -79,7 +83,7 @@
         <activity
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
