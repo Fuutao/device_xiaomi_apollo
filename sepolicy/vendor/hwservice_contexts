@@ -24,3 +24,6 @@ vendor.xiaomi.hardware.campostproc::IMiPostProcService              u:object_r:h
 
 # MI Sys
 vendor.xiaomi.hardware.misys::IMiSys                                u:object_r:hal_misys_xiaomi_hwservice:s0
+
+# Sensors
+vendor.xiaomi.hardware.citsensorservice::ICitSensorService          u:object_r:vendor_hal_citsensorservice_xiaomi_hwservice:s0
