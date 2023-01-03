@@ -35,8 +35,38 @@ def AddImage(info, basename, dest):
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
 def OTA_InstallEnd(info):
-  info.script.Print("Patching firmware images...")
+  info.script.Print("Patching dtbo, recovery, vbmeta & firmware...")
   AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
+  AddImage(info, "recovery.img", "/dev/block/bootdevice/by-name/recovery")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
   AddImage(info, "vbmeta_system.img", "/dev/block/bootdevice/by-name/vbmeta_system")
-  return
+
+  fw_cmd = ""
+
+  fw_map = {
+      'abl.elf': ['abl'],
+      'aop.mbn': ['aop'],
+      'BTFM.bin': ['bluetooth'],
+      'cmnlib.mbn': ['cmnlib'],
+      'cmnlib64.mbn': ['cmnlib64'],
+      'devcfg.mbn': ['devcfg'],
+      'dspso.bin': ['dsp'],
+      'featenabler.mbn': ['featenabler'],
+      'hyp.mbn': ['hyp'],
+      'km4.mbn': ['keymaster'],
+      'NON-HLOS.bin': ['modem'],
+      'qupv3fw.elf': ['qupfw'],
+      'storsec.mbn': ['storsec'],
+      'tz.mbn': ['tz'],
+      'uefi_sec.mbn': ['uefisecapp'],
+      'xbl_4.elf': ['xbl_4'],
+      'xbl_5.elf': ['xbl_5'],
+      'xbl_config_4.elf': ['xbl_config_4'],
+      'xbl_config_5.elf': ['xbl_config_5']
+      }
+
+  # Firmware
+  for fw in fw_map.keys():
+      for part in fw_map[fw]:
+          fw_cmd += 'package_extract_file("install/firmware-update/{}", "/dev/block/bootdevice/by-name/{}");\n'.format(fw, part)
+  info.script.AppendExtra(fw_cmd)

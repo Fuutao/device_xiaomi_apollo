@@ -453,5 +453,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+# Inherit from firmware repo
+$(call inherit-product, vendor/xiaomi-firmware/apollo/firmware.mk)
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/apollon/apollon-vendor.mk)
