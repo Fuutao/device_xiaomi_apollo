@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/apollon
+DEVICE_PATH := device/xiaomi/apollo
 
 PRODUCT_SHIPPING_API_LEVEL := 29
 
@@ -422,7 +422,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.apollon
+    vendor.qti.hardware.vibrator.service.apollo
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
@@ -457,4 +457,4 @@ PRODUCT_BOOT_JARS += \
 $(call inherit-product, vendor/xiaomi-firmware/apollo/firmware.mk)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/apollon/apollon-vendor.mk)
+$(call inherit-product, vendor/xiaomi/apollo/apollo-vendor.mk)

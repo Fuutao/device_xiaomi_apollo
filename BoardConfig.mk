@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/apollon
+DEVICE_PATH := device/xiaomi/apollo
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
@@ -74,8 +74,8 @@ DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_apollon
-TARGET_RECOVERY_DEVICE_MODULES := libinit_apollon
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_apollo
+TARGET_RECOVERY_DEVICE_MODULES := libinit_apollo
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -91,7 +91,7 @@ TARGET_KERNEL_CONFIG := vendor/apollo_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 
 # OTA assert
-TARGET_OTA_ASSERT_DEVICE := apollon,apollo,apollopro
+TARGET_OTA_ASSERT_DEVICE := apollo,apollopro
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -200,4 +200,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
-include vendor/xiaomi/apollon/BoardConfigVendor.mk
+include vendor/xiaomi/apollo/BoardConfigVendor.mk

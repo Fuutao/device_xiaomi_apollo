@@ -11,11 +11,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Kaleidoscope stuff.
 $(call inherit-product, vendor/kscope/target/product/mobile.mk)
 
-# Inherit from apollon device
-$(call inherit-product, device/xiaomi/apollon/device.mk)
+# Inherit from apollo device
+$(call inherit-product, device/xiaomi/apollo/device.mk)
 
-PRODUCT_NAME := kscope_apollon
-PRODUCT_DEVICE := apollon
+PRODUCT_NAME := kscope_apollo
+PRODUCT_DEVICE := apollo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Xiaomi Mi 10T
