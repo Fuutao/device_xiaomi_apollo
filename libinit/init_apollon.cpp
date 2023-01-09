@@ -85,16 +85,16 @@ void vendor_load_properties()
     string hwc = GetProperty("ro.boot.hwc", "");
     string sku = GetProperty("ro.boot.product.hardware.sku", "");
 
-    if (hwc == "CN") { // K30S Ultra (China)
-            set_device_props("Xiaomi", "K30S Ultra", "apollo", "M2007J3SC");
+    if (hwc == "CN") {
+            set_device_props("Xiaomi", "Redmi K30S Ultra", "apollo", "M2007J3SC");
     } else {
-        if (sku == "pro") { // Mi 10T Pro
+        if (sku == "pro") {
             set_device_props("Xiaomi", "Mi 10T Pro", "apollo", "M2007J3SG");
-        } else { // Mi 10T
+        } else {
             set_device_props("Xiaomi", "Mi 10T", "apollo", "M2007J3SY");
         }
     }
 
-    property_override("ro.build.fingerprint", "Redmi/apollo_global/apollo:12/RKQ1.211001.001/V13.0.7.0.SJDMIXM:user/release-keys");
-    property_override("ro.build.description", "apollo_global-user 12 RKQ1.211001.001 V13.0.7.0.SJDMIXM release-keys");
+    property_override("ro.build.fingerprint", "Redmi/apollo_global/apollo:12/RKQ1.211001.001/V13.0.8.0.SJDMIXM:user/release-keys");
+    property_override("ro.build.description", "apollo_global-user 12 RKQ1.211001.001 V13.0.8.0.SJDMIXM release-keys");
 }
