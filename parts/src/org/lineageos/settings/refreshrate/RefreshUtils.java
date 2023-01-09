@@ -37,24 +37,21 @@ public final class RefreshUtils {
     protected static boolean isAppInList = false;
 
     protected static final int STATE_DEFAULT = 0;
-    protected static final int STATE_LOW = 1;
-    protected static final int STATE_MODERATE = 2;
-    protected static final int STATE_STANDARD = 3;
-    protected static final int STATE_HIGH = 4;
-    protected static final int STATE_EXTREME = 5;
+    protected static final int STATE_60HZ = 1;
+    protected static final int STATE_90HZ = 2;
+    protected static final int STATE_120HZ = 3;
+    protected static final int STATE_144HZ = 4;
 
-    private static final float REFRESH_STATE_DEFAULT = 60f;
-    private static final float REFRESH_STATE_LOW = 30f;
-    private static final float REFRESH_STATE_MODERATE = 50f;
-    private static final float REFRESH_STATE_STANDARD = 60f;
-    private static final float REFRESH_STATE_HIGH = 90f;
-    private static final float REFRESH_STATE_EXTREME = 120f;
+    private static final float REFRESH_STATE_DEFAULT = 144f;
+    private static final float REFRESH_STATE_60HZ = 60f;
+    private static final float REFRESH_STATE_90HZ = 90f;
+    private static final float REFRESH_STATE_120HZ = 120f;
+    private static final float REFRESH_STATE_144HZ = 144f;
 
-    private static final String REFRESH_LOW = "refresh.low=";
-    private static final String REFRESH_MODERATE = "refresh.moderate=";
-    private static final String REFRESH_STANDARD = "refresh.standard=";
-    private static final String REFRESH_HIGH = "refresh.high=";
-    private static final String REFRESH_EXTREME = "refresh.extreme=";
+    private static final String REFRESH_60HZ = "refresh.60hz=";
+    private static final String REFRESH_90HZ = "refresh.90hz=";
+    private static final String REFRESH_120HZ = "refresh.120hz=";
+    private static final String REFRESH_144HZ = "refresh.144hz=";
 
     private SharedPreferences mSharedPrefs;
 
@@ -73,7 +70,7 @@ public final class RefreshUtils {
     }
 
    protected void getOldRate(){
-        defaultMaxRate = Settings.System.getFloat(mContext.getContentResolver(), KEY_PEAK_REFRESH_RATE, 60);
+        defaultMaxRate = Settings.System.getFloat(mContext.getContentResolver(), KEY_PEAK_REFRESH_RATE, 144);
         defaultMinRate = Settings.System.getFloat(mContext.getContentResolver(), KEY_MIN_REFRESH_RATE, 60);
     }
 
@@ -82,8 +79,7 @@ public final class RefreshUtils {
         String value = mSharedPrefs.getString(REFRESH_CONTROL, null);
 
         if (value == null || value.isEmpty()) {
-            value = REFRESH_LOW + ":" + REFRESH_MODERATE + ":" + REFRESH_STANDARD + ":" +
-                    REFRESH_HIGH + ":" + REFRESH_EXTREME;
+            value = REFRESH_60HZ + ":" + REFRESH_90HZ + ":"  + REFRESH_120HZ + ":"  + REFRESH_144HZ;
             writeValue(value);
         }
         return value;
@@ -96,25 +92,21 @@ public final class RefreshUtils {
         String finalString;
 
         switch (mode) {
-            case STATE_LOW:
+            case STATE_60HZ:
                 modes[0] = modes[0] + packageName + ",";
                 break;
-            case STATE_MODERATE:
+            case STATE_90HZ:
                 modes[1] = modes[1] + packageName + ",";
                 break;
-            case STATE_STANDARD:
+            case STATE_120HZ:
                 modes[2] = modes[2] + packageName + ",";
                 break;
-            case STATE_HIGH:
+            case STATE_144HZ:
                 modes[3] = modes[3] + packageName + ",";
-                break;
-            case STATE_EXTREME:
-                modes[4] = modes[4] + packageName + ",";
                 break;
         }
 
-        finalString = modes[0] + ":" + modes[1] + ":" + modes[2] + ":" + modes[3] + ":" +
-                modes[4];
+        finalString = modes[0] + ":" + modes[1] + ":" + modes[2] + ":" + modes[3];
 
         writeValue(finalString);
     }
@@ -124,15 +116,13 @@ public final class RefreshUtils {
         String[] modes = value.split(":");
         int state = STATE_DEFAULT;
         if (modes[0].contains(packageName + ",")) {
-            state = STATE_LOW;
+            state = STATE_60HZ;
         } else if (modes[1].contains(packageName + ",")) {
-            state = STATE_MODERATE;
+            state = STATE_90HZ;
         } else if (modes[2].contains(packageName + ",")) {
-            state = STATE_STANDARD;
+            state = STATE_120HZ;
         } else if (modes[3].contains(packageName + ",")) {
-            state = STATE_HIGH;
-        } else if (modes[4].contains(packageName + ",")) {
-            state = STATE_EXTREME;
+            state = STATE_144HZ;
         }
         return state;
     }
@@ -148,31 +138,25 @@ public final class RefreshUtils {
             modes = value.split(":");
 
             if (modes[0].contains(packageName + ",")) {
-                maxrate = REFRESH_STATE_LOW;
-                if ( minrate > maxrate){
-                minrate = maxrate;
-                }
-	        isAppInList = true;
-            } else if (modes[1].contains(packageName + ",")) {
-                maxrate = REFRESH_STATE_MODERATE;
-		if ( minrate > maxrate){
-                minrate = maxrate;
-                }
-                isAppInList = true;
-            } else if (modes[2].contains(packageName + ",")) {
-                maxrate = REFRESH_STATE_STANDARD;
+                maxrate = REFRESH_STATE_60HZ;
                 if ( minrate > maxrate){
                 minrate = maxrate;
                 }
 		isAppInList = true;
-            } else if (modes[3].contains(packageName + ",")) {
-                maxrate = REFRESH_STATE_HIGH;
+           } else if (modes[1].contains(packageName + ",")) {
+                maxrate = REFRESH_STATE_90HZ;
                 if ( minrate > maxrate){
                 minrate = maxrate;
                 }
 		isAppInList = true;
-           } else if (modes[4].contains(packageName + ",")) {
-                maxrate = REFRESH_STATE_EXTREME;
+           } else if (modes[2].contains(packageName + ",")) {
+                maxrate = REFRESH_STATE_120HZ;
+                if ( minrate > maxrate){
+                minrate = maxrate;
+                }
+		isAppInList = true;
+           } else if (modes[3].contains(packageName + ",")) {
+                maxrate = REFRESH_STATE_144HZ;
                 if ( minrate > maxrate){
                 minrate = maxrate;
                 }

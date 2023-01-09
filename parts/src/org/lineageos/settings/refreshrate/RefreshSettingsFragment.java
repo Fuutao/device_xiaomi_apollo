@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -52,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RefreshSettingsFragment extends PreferenceFragment
-        implements ApplicationsState.Callbacks {
+    implements ApplicationsState.Callbacks {
 
     private AllPackagesAdapter mAllPackagesAdapter;
     private ApplicationsState mApplicationsState;
@@ -101,6 +100,7 @@ public class RefreshSettingsFragment extends PreferenceFragment
     @Override
     public void onResume() {
         super.onResume();
+        getActivity().setTitle(getResources().getString(R.string.refresh_title));
         rebuild();
     }
 
@@ -194,16 +194,14 @@ public class RefreshSettingsFragment extends PreferenceFragment
 
     private int getStateDrawable(int state) {
         switch (state) {
-            case RefreshUtils.STATE_LOW:
-                return R.drawable.ic_refresh_30;
-            case RefreshUtils.STATE_MODERATE:
-                return R.drawable.ic_refresh_50;
-            case RefreshUtils.STATE_STANDARD:
+            case RefreshUtils.STATE_60HZ:
                 return R.drawable.ic_refresh_60;
-            case RefreshUtils.STATE_HIGH:
+            case RefreshUtils.STATE_90HZ:
                 return R.drawable.ic_refresh_90;
-            case RefreshUtils.STATE_EXTREME:
+            case RefreshUtils.STATE_120HZ:
                 return R.drawable.ic_refresh_120;
+            case RefreshUtils.STATE_144HZ:
+                return R.drawable.ic_refresh_144;
             case RefreshUtils.STATE_DEFAULT:
             default:
                 return R.drawable.ic_refresh_default;
@@ -229,16 +227,15 @@ public class RefreshSettingsFragment extends PreferenceFragment
         }
     }
 
-    private class ModeAdapter extends BaseAdapter {
+     private class ModeAdapter extends BaseAdapter {
 
         private final LayoutInflater inflater;
         private final int[] items = {
                 R.string.refresh_default,
-                R.string.refresh_low,
-                R.string.refresh_moderate,
-                R.string.refresh_standard,
-                R.string.refresh_high,
-                R.string.refresh_extreme
+                R.string.refresh_60hz,
+                R.string.refresh_90hz,
+                R.string.refresh_120hz,
+                R.string.refresh_144hz,
         };
 
         private ModeAdapter(Context context) {
@@ -272,11 +269,12 @@ public class RefreshSettingsFragment extends PreferenceFragment
 
             view.setText(items[position]);
             view.setTextSize(14f);
+
             return view;
         }
     }
 
-    private class AllPackagesAdapter extends RecyclerView.Adapter<ViewHolder>
+        private class AllPackagesAdapter extends RecyclerView.Adapter<ViewHolder>
             implements AdapterView.OnItemSelectedListener, SectionIndexer {
 
         private List<ApplicationsState.AppEntry> mEntries = new ArrayList<>();
@@ -296,22 +294,22 @@ public class RefreshSettingsFragment extends PreferenceFragment
         public long getItemId(int position) {
             return mEntries.get(position).id;
         }
-
-        @NonNull
+@NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new ViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.refresh_list_item, parent, false));
         }
 
-        @Override
+ 	@Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Context context = holder.itemView.getContext();
+
             ApplicationsState.AppEntry entry = mEntries.get(position);
+
             if (entry == null) {
                 return;
             }
-
             holder.mode.setAdapter(new ModeAdapter(context));
             holder.mode.setOnItemSelectedListener(this);
             holder.title.setText(entry.label);
@@ -339,11 +337,12 @@ public class RefreshSettingsFragment extends PreferenceFragment
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             final ApplicationsState.AppEntry entry = (ApplicationsState.AppEntry) parent.getTag();
+            
             int currentState = mRefreshUtils.getStateForPackage(entry.info.packageName);
             if (currentState != position) {
                 mRefreshUtils.writePackage(entry.info.packageName, position);
                 notifyDataSetChanged();
-            }
+            }  
         }
 
         @Override
