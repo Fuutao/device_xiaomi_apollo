@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/kscope_apollo.mk
+    $(LOCAL_DIR)/aosp_apollo.mk
 
 COMMON_LUNCH_CHOICES := \
-    kscope_apollo-user \
-    kscope_apollo-userdebug \
-    kscope_apollo-eng
+    aosp_apollo-user \
+    aosp_apollo-userdebug \
+    aosp_apollo-eng
