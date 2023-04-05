@@ -168,10 +168,12 @@ vendor/lib64/com.qti.feature2.swmf.so
 vendor/lib64/com.xiaomi.plugin.mibokeh.so
 vendor/lib64/libHalSuperSensorServer.so
 vendor/lib64/libMIAIHDRhvx_interface.so
+vendor/lib64/libMegviiFacepp-0.5.2.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libSuperSensor.so
 vendor/lib64/libSuperSensorCPU.so
 vendor/lib64/libalAILDC.so
+vendor/lib64/libalCFR.so
 vendor/lib64/libalLDC.so
 vendor/lib64/libalhLDC.so
 vendor/lib64/libarcdualcamsat.so
@@ -192,6 +194,7 @@ vendor/lib64/libdualcam_video_optical_zoom.so
 vendor/lib64/libfocus.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libipebpsstriping.so
+vendor/lib64/libmegface.so
 vendor/lib64/libmialgo_ie_capture.so
 vendor/lib64/libmialgo_ie_preview.so
 vendor/lib64/libmialgo_image_colourkeeping.so
@@ -207,6 +210,7 @@ vendor/lib64/libmibokeh_845_video.so
 vendor/lib64/libmibokeh_855.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libmulticam_image_optical_zoom.so
+vendor/lib64/libmulticam_optical_zoom_control.so
 vendor/lib64/libmulticam_video_optical_zoom.so
 vendor/lib64/libnanopb.so
 vendor/lib64/libofflinelog.so
@@ -337,7 +341,18 @@ vendor/lib64/camera/components/libdepthmapwrapper.so
 vendor/lib64/camera/components/libubifocus.so
 
 # Camera configs
-vendor/camera/model/model_front.dlc
+vendor/etc/camera/102_SummerDay.png
+vendor/etc/camera/103_Fantasy.png
+vendor/etc/camera/104_Meet.png
+vendor/etc/camera/105_WindSing.png
+vendor/etc/camera/106_Lost.png
+vendor/etc/camera/107_Central.png
+vendor/etc/camera/108_NorthernEurope.png
+vendor/etc/camera/109_Rome.png
+vendor/etc/camera/110_BlackGold.png
+vendor/etc/camera/111_GreenOrange.png
+vendor/etc/camera/112_CyberPunk.png
+vendor/etc/camera/113_BlackIce.png
 vendor/etc/camera/xiaomi/dualbokehsnapshot.json
 vendor/etc/camera/xiaomi/frontbokehsnapshot.json
 vendor/etc/camera/xiaomi/frontsinglesnapshot.json
@@ -394,6 +409,8 @@ vendor/etc/camera/eyelineblush.cng
 vendor/etc/camera/goturn_search_dsp.dlc
 vendor/etc/camera/goturn_target_dsp.dlc
 vendor/etc/camera/hdrd_ui9_params.config
+vendor/etc/camera/megviifacepp_0_5_2_model
+vendor/etc/camera/miai_psn_config.yaml
 vendor/etc/camera/mibokeh_855_opencl.bin
 vendor/etc/camera/mibokeh_855_parameter.bin
 vendor/etc/camera/model.dat
@@ -403,7 +420,29 @@ vendor/etc/camera/model_front_mibokeh_video.dlc
 vendor/etc/camera/reid_float.dlc
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/seg_quantized.dlc
+vendor/etc/camera/sr_params.xml
 vendor/etc/camera/vidhance_calibration
+
+# MIUI Camera
+-priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Camera,GoogleCameraGo,Snap
+-app/MiuiScanner/MiuiScanner.apk
+lib64/libcamera_algoup_jni.xiaomi.so
+lib64/libcamera_mianode_jni.xiaomi.so
+vendor/lib64/libcom.xiaomi.metadatautils.so
+vendor/lib64/lib_sr_models.so
+vendor/lib64/libsdk_sr.so
+vendor/lib64/libmiai_deblur.so
+vendor/lib64/libmiai_portraitsupernight.so
+system/lib64/libgui.so:system/lib64/libgui-xiaomi.so
+vendor/lib64/libgui_vendor.so
+vendor/lib64/libflaw.so
+vendor/camera/fonts/FZMiaoWuJW.ttf
+vendor/camera/fonts/MFYueYuan-Regular.ttf
+vendor/camera/fonts/MI+LanTing_GB+Outside+YS_V2.3_20160322.ttf
+vendor/camera/fonts/MIUI_Time.ttf
+vendor/camera/mimoji/data.zip
+vendor/camera/mimoji/model2.zip
+vendor/camera/model/model_front.dlc
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
