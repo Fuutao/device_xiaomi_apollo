@@ -130,6 +130,8 @@ TARGET_SCREEN_WIDTH := 1080
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-external \
+    android.hardware.camera.provider@2.4-legacy \
     android.hardware.camera.provider@2.4-service_64
 
 PRODUCT_PACKAGES += \
@@ -137,6 +139,7 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     libgui_vendor \
     libstdc++.vendor \
+    libdng_sdk.vendor \
     libmegface \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
@@ -149,6 +152,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
+
+# Device-Features
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/device_features/apollo.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/device_features/apollo.xml
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
@@ -271,6 +278,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.mlipay@1.1.vendor \
     vendor.xiaomi.hardware.mtdservice@1.0.vendor
+
+# MIUI Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/default-permissions/miuicamera-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/default-permissions/miuicamera-permissions.xml \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-miuicamera.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sysconfig/miuicamera-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/miuicamera-hiddenapi-package-whitelist.xml
 
 # Net
 PRODUCT_PACKAGES += \

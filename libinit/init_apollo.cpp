@@ -63,7 +63,7 @@ void set_ro_build_prop(const string &source, const string &prop,
 }
 
 void set_device_props(const string brand, const string marketname,
-        const string device, const string model) {
+        const string device, const string model, const string mod_device) {
     // list of partitions to override props
     string source_partitions[] = { "", "bootimage", "odm.", "product.",
                                    "system", "system_ext.", "vendor." };
@@ -74,6 +74,7 @@ void set_device_props(const string brand, const string marketname,
         set_ro_build_prop(source, "device", device, true);
         set_ro_build_prop(source, "product", device, false);
         set_ro_build_prop(source, "model", model, true);
+        set_ro_build_prop(source, "mod_device", mod_device, true);
     }
 }
 
@@ -86,12 +87,12 @@ void vendor_load_properties()
     string sku = GetProperty("ro.boot.product.hardware.sku", "");
 
     if (hwc == "CN") {
-            set_device_props("Xiaomi", "Redmi K30S Ultra", "apollo", "M2007J3SC");
+            set_device_props("Xiaomi", "Redmi K30S Ultra", "apollo", "M2007J3SC", "apollo_global");
     } else {
         if (sku == "pro") {
-            set_device_props("Xiaomi", "Mi 10T Pro", "apollo", "M2007J3SG");
+            set_device_props("Xiaomi", "Mi 10T Pro", "apollo", "M2007J3SG", "apollo_pro_global");
         } else {
-            set_device_props("Xiaomi", "Mi 10T", "apollo", "M2007J3SY");
+            set_device_props("Xiaomi", "Mi 10T", "apollo", "M2007J3SY", "apollo_global");
         }
     }
 

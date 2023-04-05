@@ -18,3 +18,9 @@ vendor.nxp.nxpnfc::INxpNfc                                          u:object_r:h
 
 # VPP
 ::vppService                                                        u:object_r:hal_vpp_hwservice:s0
+
+# Xiaomi Postproc
+vendor.xiaomi.hardware.campostproc::IMiPostProcService              u:object_r:hal_camerapostproc_xiaomi_hwservice:s0
+
+# MI Sys
+vendor.xiaomi.hardware.misys::IMiSys                                u:object_r:hal_misys_xiaomi_hwservice:s0
