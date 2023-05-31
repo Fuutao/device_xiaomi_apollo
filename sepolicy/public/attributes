@@ -1,1 +1,7 @@
+# Misys
+attribute hal_misys;
+attribute hal_misys_client;
+attribute hal_misys_server;
+
+# Mlipay
 hal_attribute_lineage(mlipay)
