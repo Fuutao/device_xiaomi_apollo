@@ -901,6 +901,9 @@ vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
 # NVRAM
 vendor/bin/nv_mac
 
+# Offline Charging
+system/bin/charger:system/bin/chargeonlymode
+
 # OMX
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
