@@ -11,17 +11,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from apollo device
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
-# Inherit some common PixelOS stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_USES_AOSP_RECOVERY := true
-TARGET_SUPPORTS_QUICK_TAP := true
+# Inherit some common Miku UI stuff.
+$(call inherit-product, vendor/miku/build/product/miku_product.mk)
 
-PRODUCT_NAME := aosp_apollo
+# Maintainer
+MIKU_MASTER := Fuutao
+
+PRODUCT_NAME := miku_apollo
 PRODUCT_DEVICE := apollo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Xiaomi Mi 10T
+PRODUCT_MODEL := Mi 10T
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
