@@ -1,0 +1,15 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app_import {
+	name: "MiPush",
+	owner: "xiaomi",
+	apk: "MiPush.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+}
