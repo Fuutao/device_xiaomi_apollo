@@ -165,7 +165,6 @@ vendor/lib64/com.qti.feature2.softispsupernight.so
 vendor/lib64/com.qti.feature2.sr.so
 vendor/lib64/com.qti.feature2.stub.so
 vendor/lib64/com.qti.feature2.swmf.so
-vendor/lib64/com.xiaomi.plugin.mibokeh.so
 vendor/lib64/libHalSuperSensorServer.so
 vendor/lib64/libMIAIHDRhvx_interface.so
 vendor/lib64/libMegviiFacepp-0.5.2.so
@@ -254,6 +253,28 @@ vendor/lib64/libarcsoft_portrait_lighting_c.so
 vendor/lib64/libarcsoft_preview_deflicker.so
 vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libarcsoft_superportrait.so
+
+# Camera-plugins
+vendor/lib64/com.qcom.plugin.gpu.so
+vendor/lib64/com.qcom.plugin.jpegencode.so
+vendor/lib64/com.xiaomi.plugin.bodyslim.so
+vendor/lib64/com.xiaomi.plugin.capbokeh.so
+vendor/lib64/com.xiaomi.plugin.dc.so
+vendor/lib64/com.xiaomi.plugin.depurple.so
+vendor/lib64/com.xiaomi.plugin.hdr.so
+vendor/lib64/com.xiaomi.plugin.ldc.so
+vendor/lib64/com.xiaomi.plugin.memcpy.so
+vendor/lib64/com.xiaomi.plugin.miaideblur.so
+vendor/lib64/com.xiaomi.plugin.miaiie.so
+vendor/lib64/com.xiaomi.plugin.mibokeh.so
+vendor/lib64/com.xiaomi.plugin.miflaw.so
+vendor/lib64/com.xiaomi.plugin.mifragment.so
+vendor/lib64/com.xiaomi.plugin.misegment.so
+vendor/lib64/com.xiaomi.plugin.skinbeautifier.so
+vendor/lib64/com.xiaomi.plugin.sr.so
+vendor/lib64/com.xiaomi.plugin.supernight.so
+vendor/lib64/com.xiaomi.plugin.superportrait.so
+vendor/lib64/libcom.xiaomi.pluginutils.so
 
 # Camera (camerax)
 vendor/lib/libcamxexternalformatutils.so
