@@ -284,4 +284,9 @@
         <transport>hwbinder</transport>
         <fqname>@1.1::ICitSensorService/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.campostproc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMiPostProcService/default</fqname>
+    </hal>
 </manifest>

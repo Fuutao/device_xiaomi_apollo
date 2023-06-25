@@ -254,6 +254,18 @@ vendor/lib64/libarcsoft_preview_deflicker.so
 vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libarcsoft_superportrait.so
 
+# Camera (campostproc)
+system/framework/vendor.xiaomi.hardware.campostproc-V1.0-java.jar
+system/etc/permissions/vendor.xiaomi.hardware.campostproc-V1.0-java-permission.xml
+vendor/bin/hw/vendor.xiaomi.hardware.campostproc@1.0-service
+vendor/etc/init/vendor.xiaomi.hardware.campostproc@1.0-service.rc
+vendor/lib/hw/vendor.xiaomi.hardware.campostproc@1.0-impl.so
+system/lib/vendor.xiaomi.hardware.campostproc@1.0.so
+vendor/lib/vendor.xiaomi.hardware.campostproc@1.0.so
+vendor/lib64/hw/vendor.xiaomi.hardware.campostproc@1.0-impl.so
+system/lib64/vendor.xiaomi.hardware.campostproc@1.0.so
+vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0.so
+
 # Camera-plugins
 vendor/lib64/com.qcom.plugin.gpu.so
 vendor/lib64/com.qcom.plugin.jpegencode.so
