@@ -238,21 +238,23 @@ vendor/lib64/libxmi_high_dynamic_range.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so|f0ee934ce0ceedaf3c429be7c644311e8343a6a8|040754908683f59ee1b5b7f962f659fbed3a515a
 
 # Camera-arcsoft
-vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_bodyslim.so
-vendor/lib64/libarcsoft_distortion_correction.so
+vendor/lib64/libarcsoft_beautyshot.so
+vendor/lib64/libarcsoft_hdr_detection.so
+vendor/lib64/libarcsoft_superportrait.so
 vendor/lib64/libarcsoft_dualcam_refocus.so
+vendor/lib64/libarcsoft_super_night_raw.so
+vendor/lib64/libarcsoft_hdrplus_hvx_stub.so
+vendor/lib64/libarcsoft_portrait_lighting.so
+vendor/lib64/libarcsoft_preview_deflicker.so
+vendor/lib64/libarcsoft_high_dynamic_range.so
+vendor/lib64/libarcsoft_portrait_lighting_c.so
+vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_dualcam_refocus_front.so
 vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so
 vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so
-vendor/lib64/libarcsoft_hdr_detection.so
-vendor/lib64/libarcsoft_hdrplus_hvx_stub.so
-vendor/lib64/libarcsoft_high_dynamic_range.so
-vendor/lib64/libarcsoft_portrait_lighting.so
-vendor/lib64/libarcsoft_portrait_lighting_c.so
-vendor/lib64/libarcsoft_preview_deflicker.so
-vendor/lib64/libarcsoft_super_night_raw.so
-vendor/lib64/libarcsoft_superportrait.so
+system/lib/libarcsoft_single_chart_calibration.so
+system/lib64/libarcsoft_single_chart_calibration.so
 
 # Camera (campostproc)
 system/framework/vendor.xiaomi.hardware.campostproc-V1.0-java.jar
